@@ -10,7 +10,10 @@ function Chat() {
         e.preventDefault();
         setLoading(true);
         try {
-            const res = await axios.post('/api/chat/ask', { prompt });
+            const res = await axios.post(
+              `${import.meta.env.VITE_API}/api/chat/ask`,
+              { prompt }
+            );
             setResponse(res.data.response);
         } catch (error) {
             console.error('Error:', error);
